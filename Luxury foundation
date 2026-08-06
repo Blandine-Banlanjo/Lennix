@@ -1,0 +1,16 @@
+src/
+├── app/
+│   ├── page.tsx
+│   ├── layout.tsx
+│
+├── components/
+│   ├── Navbar
+│   ├── Hero
+│   ├── ProductCard
+│   ├── CollectionCard
+│   └── Footer
+│
+├── styles/
+│
+├── data/
+│   └── products.ts
