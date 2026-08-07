@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Montserrat } from "next/font/google";
 import "./globals.css";
+import { CartProvider } from "@/context/CartContext";
 
 const heading = Cormorant_Garamond({
   subsets: ["latin"],
@@ -25,8 +26,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${heading.variable} ${body.variable}`}>
-        {children}
+      <body>
+          <CartProvider>
+             {children}
+          </CartProvider>
       </body>
     </html>
   );
