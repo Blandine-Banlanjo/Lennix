@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#fcf8f2] pt-32">
+    <section className="relative animate-pulse">
       <div className="mx-auto grid min-h-screen max-w-7xl items-center gap-12 px-8 lg:grid-cols-2">
         <div>
           <p className="mb-4 uppercase tracking-[0.4em] text-[#b8860b]">
