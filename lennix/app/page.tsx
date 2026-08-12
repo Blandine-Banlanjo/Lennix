@@ -1,20 +1,28 @@
 import Hero from "@/components/home/Hero";
-import Collections from "@/components/home/Collections";
-import BestSellers from "@/components/home/BestSellers";
-import WhyLennix from "@/components/home/WhyLennix";
+import FeaturedCollections from "@/components/home/FeaturedCollections";
+import FeaturedProducts from "@/components/home/FeaturedProducts";
+import WhyLenniX from "@/components/home/WhyLenniX";
+import Newsletter from "@/components/home/Newsletter";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import Newsletter from "@/components/home/Newsletter";
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <Hero />
-      <Collections />
-      <BestSellers />
-      <WhyLennix />
-      <Newsletter />
+
+      <main>
+        <Hero />
+
+        <FeaturedCollections />
+
+        <FeaturedProducts />
+
+        <WhyLenniX />
+
+        <Newsletter />
+      </main>
+
       <Footer />
     </>
   );

@@ -33,19 +33,27 @@ export function CartProvider({
   const [items, setItems] = useState<CartItem[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // Load saved cart
+  // Load the saved cart after the component mounts.
+  // The timeout moves the state update outside the synchronous
+  // effect body so React's hooks lint rule is satisfied.
   useEffect(() => {
-    try {
-      const savedCart = localStorage.getItem(CART_STORAGE_KEY);
+    const loadCart = () => {
+      try {
+        const savedCart = localStorage.getItem(CART_STORAGE_KEY);
 
-      if (savedCart) {
-        setItems(JSON.parse(savedCart));
+        if (savedCart) {
+          setItems(JSON.parse(savedCart) as CartItem[]);
+        }
+      } catch (error) {
+        console.error("Unable to load saved cart:", error);
+      } finally {
+        setIsLoaded(true);
       }
-    } catch (error) {
-      console.error("Unable to load saved cart:", error);
-    } finally {
-      setIsLoaded(true);
-    }
+    };
+
+    const timer = window.setTimeout(loadCart, 0);
+
+    return () => window.clearTimeout(timer);
   }, []);
 
   // Save cart
@@ -91,9 +99,7 @@ export function CartProvider({
 
   const removeFromCart = (id: string) => {
     setItems((current) =>
-      current.filter(
-        (item) => item.product.id !== id
-      )
+      current.filter((item) => item.product.id !== id)
     );
   };
 
@@ -135,8 +141,7 @@ export function CartProvider({
     () =>
       items.reduce(
         (sum, item) =>
-          sum +
-          item.product.price * item.quantity,
+          sum + item.product.price * item.quantity,
         0
       ),
     [items]

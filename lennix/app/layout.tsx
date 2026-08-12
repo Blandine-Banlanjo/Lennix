@@ -16,7 +16,8 @@ const body = Montserrat({
 
 export const metadata: Metadata = {
   title: "LenniX Perfumes",
-  description: "Luxury fragrance oils crafted to leave unforgettable impressions.",
+  description:
+    "Luxury fragrance oils crafted to leave unforgettable impressions.",
 };
 
 export default function RootLayout({
@@ -26,10 +27,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-          <CartProvider>
-             {children}
-          </CartProvider>
+      <body className={`${heading.variable} ${body.variable}`}>
+        <CartProvider>{children}</CartProvider>
       </body>
     </html>
   );

@@ -1,18 +1,74 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fcf8f2;
-  --foreground: #2d2d2d;
+  /* ========================================
+     LENNIXX CORE PALETTE
+     ======================================== */
 
-  --gold: #d4af37;
-  --gold-dark: #b8860b;
-  --cream: #fcf8f2;
-  --pink: #f6e8ea;
-  --rose: #ebced8;
-  --lavender: #d8c8f2;
-  --charcoal: #2d2d2d;
-  --white: #ffffff;
+  /* Burgundy / Red family */
+  --lennix-velvet-crimson: #5b0b0f;
+  --lennix-romance-red: #76251c;
+
+  /* Brown family */
+  --lennix-espresso: #352218;
+  --lennix-charcoal: #2d2d2d;
+  --lennix-black: #151313;
+
+  /* Gold family */
+  --lennix-gold: #d4af37;
+  --lennix-gold-deep: #b8860b;
+  --lennix-champagne: #e7dcc5;
+
+  /* Light neutrals */
+  --lennix-cream: #fcf8f2;
+  --lennix-pearl: #fffdfc;
+
+  /* Pink family */
+  --lennix-blush: #f6e8ea;
+  --lennix-rose: #e8b7c8;
+  --lennix-dusty-rose: #d9a0b5;
+
+  /* Purple family */
+  --lennix-lavender: #d8c8e8;
+  --lennix-mauve: #b88fa9;
+  --lennix-plum: #5b315d;
+
+  /* Application colors */
+  --background: var(--lennix-cream);
+  --foreground: var(--lennix-charcoal);
 }
+
+/* ========================================
+   TAILWIND COLOR TOKENS
+   ======================================== */
+
+@theme inline {
+  --color-lennix-velvet-crimson: var(--lennix-velvet-crimson);
+  --color-lennix-romance-red: var(--lennix-romance-red);
+
+  --color-lennix-espresso: var(--lennix-espresso);
+  --color-lennix-charcoal: var(--lennix-charcoal);
+  --color-lennix-black: var(--lennix-black);
+
+  --color-lennix-gold: var(--lennix-gold);
+  --color-lennix-gold-deep: var(--lennix-gold-deep);
+  --color-lennix-champagne: var(--lennix-champagne);
+
+  --color-lennix-cream: var(--lennix-cream);
+  --color-lennix-pearl: var(--lennix-pearl);
+
+  --color-lennix-blush: var(--lennix-blush);
+  --color-lennix-rose: var(--lennix-rose);
+  --color-lennix-dusty-rose: var(--lennix-dusty-rose);
+
+  --color-lennix-lavender: var(--lennix-lavender);
+  --color-lennix-mauve: var(--lennix-mauve);
+  --color-lennix-plum: var(--lennix-plum);
+}
+
+/* ========================================
+   GLOBAL RESET
+   ======================================== */
 
 * {
   box-sizing: border-box;
@@ -24,20 +80,116 @@ html {
 
 body {
   margin: 0;
-  background: var(--cream);
+  background:
+    linear-gradient(
+      135deg,
+      var(--lennix-cream) 0%,
+      var(--lennix-pearl) 55%,
+      var(--lennix-blush) 100%
+    );
   color: var(--foreground);
   font-family: var(--font-body);
 }
+
+/* ========================================
+   TYPOGRAPHY
+   ======================================== */
 
 h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+h6 {
   font-family: var(--font-heading);
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+/* ========================================
+   SELECTION
+   ======================================== */
+
+::selection {
+  background: var(--lennix-velvet-crimson);
+  color: var(--lennix-pearl);
+}
+
+/* ========================================
+   PREMIUM SCROLLBAR
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--lennix-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    var(--lennix-gold),
+    var(--lennix-velvet-crimson)
+  );
+  border-radius: 999px;
+}
+
+/* ========================================
+   LENNIXX LUXURY UTILITIES
+   ======================================== */
+
+.lennix-gold-text {
+  background: linear-gradient(
+    135deg,
+    var(--lennix-gold),
+    var(--lennix-champagne),
+    var(--lennix-gold-deep)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.lennix-luxury-gradient {
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(118, 37, 28, 0.12),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(216, 200, 232, 0.18),
+      transparent 35%
+    ),
+    var(--lennix-cream);
+}
+
+.lennix-burgundy-gradient {
+  background:
+    radial-gradient(
+      circle at 20% 10%,
+      rgba(212, 175, 55, 0.18),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      var(--lennix-velvet-crimson),
+      var(--lennix-romance-red),
+      var(--lennix-espresso)
+    );
+}
+
+.lennix-champagne-gradient {
+  background:
+    linear-gradient(
+      135deg,
+      var(--lennix-champagne),
+      var(--lennix-pearl)
+    );
 }
